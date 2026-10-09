@@ -1,5 +1,5 @@
 /* =========================================================
-   Diaspora 主题美化补丁  ——  by wuyan_angel
+   Diaspora 主题美化补丁  ——  by wuyan-angel
    在主题原样式之后加载，仅做覆盖，不改动原 diaspora.css
    ========================================================= */
 /* 字体使用系统字体栈，避免依赖被墙的 Google Fonts */
@@ -210,3 +210,44 @@ h1.title {
 
 /* 顶部悬浮返回栏 */
 #top { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+
+/* ══════════ 首屏 · 打字机金句（替代原来的"最新文章"）══════════ */
+#screen-quote {
+    position: absolute;
+    top: 42%;
+    left: 10%;
+    width: 46%;
+    min-height: 3.6em;
+    z-index: 3;
+    color: #fff;
+    font-family: 'LXGW WenKai', '霞鹜文楷', 'KaiTi', '楷体', 'STKaiti', serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .55);
+}
+/* 打字机光标：白色方块闪烁（同时美化菜单里那处的光标） */
+.typed-cursor {
+    color: var(--gold);
+    font-weight: 400;
+    opacity: 1;
+    animation: typedjsBlink .75s infinite;
+}
+@keyframes typedjsBlink { 50% { opacity: 0; } }
+
+@media screen and (max-width: 1200px) {
+    #screen-quote { width: 54%; font-size: 28px; }
+}
+@media screen and (max-width: 900px) {
+    #screen-quote { width: 64%; font-size: 25px; }
+}
+@media screen and (max-width: 780px) {
+    #screen-quote {
+        top: auto; bottom: 70px; left: 5%;
+        width: 74%;
+        font-size: 21px;
+        letter-spacing: 1px;
+        min-height: 4.2em;
+    }
+}

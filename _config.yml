@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: wuyan_angel|blog
-subtitle: '123'
-description: '11111'
+title: wuyan-angel|blog
+subtitle: ''
+description: ''
 keywords:
 author: wuyan
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://wuyan_ange.github.io
+url: https://wuyan-angel.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

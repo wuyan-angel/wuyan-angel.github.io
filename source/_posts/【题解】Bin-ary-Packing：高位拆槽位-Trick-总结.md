@@ -4,6 +4,9 @@ date: 2026-10-01 22:16:36
 categories: [题解]
 tags: [AtCoder, 二分, 位运算, 思维]
 ---
+
+> 🎯 **一句话题意**：重量为 2^i 的包裹装入 N 个袋子，二分求最小容量上限并用高位拆槽位验证。
+
 > 🔗 **原题链接**：[B - Bin-ary Packing](https://atcoder.jp/contests/arc226/tasks/arc226_b?lang=en)
 # 【题解】Bin-ary Packing：高位拆槽位 Trick 总结
 
@@ -12,7 +15,7 @@ tags: [AtCoder, 二分, 位运算, 思维]
 - **解法框架**：二分答案 + **高位往低位拆槽（Top-Down Slot Splitting）**
 - **核心口诀**：**大槽能拆小，小槽拼不大**。
 - **关键转移方程**：
-  $$\text{rest} = \text{rest} \times 2 + ((X \gg i) \& 1 \ ? \ N : 0)$$
+  $$\text{rest} = \text{rest} \times 2 + ((X \gg i) \wedge 1 \ ? \ N : 0)$$
     
     - **$\text{rest} \times 2$**：上一层用剩的每一个 $2^{i+1}$ 槽位，裂变成 2 个 $2^i$ 槽位（**零碎片浪费**）    
     - **$+N$**：如果上限 $X$ 的第 $i$ 位是 $1$，则 $N$ 个袋子各贡献 1 个 $2^i$ 槽位。
@@ -63,7 +66,7 @@ return false     rest -= A[i]
 $$\text{rest} = \text{rest} \times 2$$
     
 2. **容量 $X$ 新增贡献**：若 $X$ 的二进制第 $i$ 位为 $1$，则 $N$ 个袋子各提供 $1$ 个 $2^i$ 槽位：
-$$\text{if } ((X \gg i) \& 1) \implies \text{rest} += N$$
+$$\text{if } ((X \gg i) \wedge 1) \implies \text{rest} += N$$
     
 3. **剪枝防溢出**：若 $\text{rest} > \text{包裹总数}$，强制令 $\text{rest} = \text{包裹总数}$（防止 `long long` 翻倍溢出变成负数）。
 

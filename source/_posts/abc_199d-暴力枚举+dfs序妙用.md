@@ -4,6 +4,9 @@ date: 2026-05-10 23:57:25
 categories: [题解]
 tags: [AtCoder]
 ---
+
+> 🎯 **一句话题意**：N≤20 无向图三染色方案计数，按 DFS 序枚举剪枝避免 3^N。
+
 > 🔗 **原题链接**：[D - RGB Coloring 2](https://atcoder.jp/contests/abc199/tasks/abc199_d?lang=en)
 
 题目要求我们将一个图染成三个颜色共有多少个方案

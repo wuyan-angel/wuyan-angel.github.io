@@ -20,11 +20,26 @@
             <div class="iconfont icon-menu switchmenu"></div>
         </div>
     </div>
-    <% if ( first ) { %>
-    <div id="post0">
-        <p><%- first.date.locale("zh-cn").format("YYYY-MM-DD") %></p>
-        <h2><%- link_to(first.path, first.title || config.title, {class: "posttitle"}) %></h2>
-        <p class="summary"><%- truncate(strip_html(first.content), {length: 60, omission: '...'}) %></p>
+    <!-- 首屏：打字机金句（替代原来的"最新文章"） -->
+    <div id="screen-quote">
+        <span class="typed" id="screen-typed"></span>
     </div>
-    <% } %>
+    <script>
+    window.addEventListener('load', function () {
+        var el = document.getElementById('screen-typed');
+        if (!el || typeof Typed === 'undefined') return;
+        var quotes = <%- JSON.stringify(theme.screen_quote || []) %>;
+        if (!quotes.length) return;
+        new Typed('#screen-typed', {
+            strings: quotes,
+            typeSpeed: 80,
+            startDelay: 1000,
+            backSpeed: 30,
+            backDelay: 3000,
+            loop: quotes.length > 1,
+            showCursor: true,
+            cursorChar: '▍'
+        });
+    });
+    </script>
 </div>

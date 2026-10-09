@@ -4,6 +4,9 @@ date: 2026-09-21 11:14:23
 categories: [题解]
 tags: [Codeforces, 思维]
 ---
+
+> 🎯 **一句话题意**：给定 n 根长度不超过 m 的胡萝卜，对每个 k=1..m 用 T=2^k 把每根切成不超过 T 段并计分，求最大得分。
+
 ---
 
 # 题解：Carrot Chopdown

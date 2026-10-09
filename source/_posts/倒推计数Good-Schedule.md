@@ -4,6 +4,9 @@ date: 2026-06-03 17:03:01
 categories: [题解]
 tags: [Codeforces]
 ---
+
+> 🎯 **一句话题意**：给定两人每日所看剧集，倒推 DP 统计不发生剧透的合法区间数。
+
 > 🔗 **原题链接**：[Problem - D - Codeforces](https://codeforces.com/contest/2230/problem/D)
 题目大意：
 ## 1. 题目核心转化

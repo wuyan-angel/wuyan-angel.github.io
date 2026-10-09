@@ -4,6 +4,9 @@ date: 2026-04-23 17:48:02
 categories: [题解]
 tags: [Codeforces]
 ---
+
+> 🎯 **一句话题意**：给定 n 个 (值 x, 容量 y) 点对与 m 次询问，每次可再选一个点对，求满足容量约束的最大总和。
+
 > 🔗 **原题链接**：[Problem - F - Codeforces](https://codeforces.com/contest/2200/problem/F)
 题目大意：
 给定n个点对$x,y$，其中$x$为值，$y$为容量，代表如果我要选当前这个，其他选择的个数不超过$y$个

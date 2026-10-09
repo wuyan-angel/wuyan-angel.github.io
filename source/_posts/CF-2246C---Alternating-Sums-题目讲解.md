@@ -4,6 +4,9 @@ date: 2026-07-15 10:52:03
 categories: [题解]
 tags: [Codeforces]
 ---
+
+> 🎯 **一句话题意**：给定含 -1 的非递减数组，求交替和为 0 的子序列个数（模 1e9+7）。
+
 # CF 2246C - Alternating Sums 题目讲解
 
 ## 一、题目回顾

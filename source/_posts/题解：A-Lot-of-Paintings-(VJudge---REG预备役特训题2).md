@@ -4,6 +4,9 @@ date: 2026-09-28 17:34:22
 categories: [题解]
 tags: [ICPC, 思维]
 ---
+
+> 🎯 **一句话题意**：给定 n 个四舍五入后的占比百分数 a_i，判断能否还原非负整数数组 b 使其占比四舍五入恰好为 a_i，可行则线性构造输出。
+
 # 题解：A Lot of Paintings (VJudge - REG预备役特训题2)
 [A Lot of Paintings - Problem - QOJ.ac](https://qoj.ac/problem/14706)
 ## 题目大意

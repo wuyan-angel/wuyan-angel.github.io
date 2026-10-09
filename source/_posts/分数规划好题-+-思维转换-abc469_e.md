@@ -4,6 +4,9 @@ date: 2026-10-01 20:30:08
 categories: [题解]
 tags: [AtCoder, 思维]
 ---
+
+> 🎯 **一句话题意**：01 串中求 'o' 数量≥K 且胜率最大的区间，用 0-1 分数规划二分。
+
 > 🔗 **原题链接**：[E - Pro Exam Eligibility](https://atcoder.jp/contests/abc469/tasks/abc469_e?lang=en)
 ## 【题解】Pro Exam Eligibility
 

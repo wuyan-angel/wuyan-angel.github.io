@@ -4,6 +4,9 @@ date: 2026-08-27 00:27:32
 categories: [题解]
 tags: [Codeforces]
 ---
+
+> 🎯 **一句话题意**：给定面积 S 和 q 个询问 (x,y)，求面积 S 的整数边矩形并集与 [0,x)×[0,y) 的交面积。
+
 # CF「Bermuda Rectangle」题解总结
 
 [Submission #388487117 - Codeforces](https://codeforces.com/contest/2257/submission/388487117)

@@ -4,6 +4,9 @@ date: 2026-09-29 11:25:59
 categories: [题解]
 tags: [AtCoder, 思维]
 ---
+
+> 🎯 **一句话题意**：给定数组 A 和操作（位置 i 减 v、i+1 减 ⌊v/2⌋），求把 A 清零的最少操作次数，不可行输出 -1。
+
 > 🔗 **原题链接**：[B - Halving Subtraction](https://atcoder.jp/contests/arc229/tasks/arc229_b?lang=en)
 ### 核心 Trick 总结
 
