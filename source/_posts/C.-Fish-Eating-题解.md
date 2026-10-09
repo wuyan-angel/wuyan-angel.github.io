@@ -1,0 +1,184 @@
+---
+title: C. Fish Eating 题解
+date: 2026-07-20 11:24:00
+categories: [题解]
+tags: [牛客]
+---
+# C. Fish Eating 题解
+
+> 来源：NowCoder 牛客竞赛
+> 链接：https://ac.nowcoder.com/acm/contest/133876/C
+> 时间限制 8000ms / 内存 2048MB
+
+## 题目简述
+
+n×m 网格，初始全是障碍。鱼可以走相邻格（上下左右）：
+
+- 走空的可通行格 → 直接移动
+- 目标格有鱼且 **自己的大小 ≥ 它** → 吃掉，自己大小 +1
+- 目标格有更大的鱼或障碍 → 不能走
+
+操作（坐标用上一次答案 XOR 解密，均为**假设过程**不改变真实状态）：
+
+| 类型 | 操作 | 询问 |
+|:---:|:-----|:-----|
+| 1 | 在 (x,y) 放大小 v 的鱼（**v ≥ 之前所有鱼**） | 这条鱼最多能吃多少条 |
+| 2 | 查询 (x,y) 的鱼，可先任意增大初始大小 | 吃到最大数量 k 时，最小需增大多少 |
+
+约束：n·m ≤ 2.5×10⁵，q ≤ 5×10⁵。
+
+## 核心思想
+
+### 1. 新鱼总是最大的（关键性质）
+
+题目保证 type 1 放的鱼 v **不小于**之前所有鱼。所以鱼按放置顺序**大小单调不减**，每次合并都是"大鱼包住小鱼"。
+
+### 2. Kruskal 重构树
+
+每次放新鱼并合并相邻组件时，**新建一个父节点**把它们包起来，形成一棵"合并树"：
+
+```
+    合并根(节点3)
+    /         \
+ 鱼1节点      鱼2节点
+```
+
+### 3. 节点维护两个值
+
+| 值 | 含义 |
+|:---|:-----|
+| `sz[u]` | u 子树内鱼的数量 |
+| `w[u]` | 从 u 向上走需要的大小门槛 |
+
+**门槛推导**：一条大小 z 的新鱼合并大小为 s 的旧组件。旧组件里的鱼要先吃掉自己组件内其他 s-1 条鱼（长大 s-1），才面对新鱼 z：
+
+```
+初始大小 v + 吃(s-1)条 = v + s - 1 ≥ z
+→ v ≥ z - s + 1
+```
+
+所以 `w[旧组件根] = z - sz + 1`。
+
+### 4. 一条鱼到根的路径
+
+一条鱼在节点 u，吃到根需要满足路径上每一层的门槛。每层的条件是：
+
+```
+v + sz[x] - 1 ≥ w[父节点]
+→ v ≥ w[父节点] - sz[x] + 1
+```
+
+所以总门槛 = **路径上所有点 (w - sz + 1) 的最大值**。用 `Max[u]` 维护"从 u 到根路径上 w-sz+1 的最大值"。
+
+### 5. 用并查集维护（不显式建树）
+
+只需维护 4 个数组：`p`(父), `sz`(子树鱼数), `w`, `Max`(路径门槛最大值)。
+
+`find(x)` 做路径压缩时，同时累积 Max：
+
+```
+Max[x] = max(Max[x], Max[父节点])    // 父节点已含其上的 Max
+```
+
+## 代码实现
+
+```cpp
+// Problem: C. Fish Eating (NowCoder)
+// Kruskal 重构树 + 并查集维护 Max 门槛
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXNODE = 1000005;   // 鱼数 + 合并数 ≤ 2.5e5+2.5e5 = 5e5，留余量
+int p[MAXNODE], Size[MAXNODE];
+ll Max[MAXNODE];               // u 到根路径上 (w - sz + 1) 的最大值
+int idx = 0;
+int n, m, q, last;
+
+int dx[] = {0,0,1,-1}, dy[] = {1,-1,0,0};
+
+int find(int x) {
+    if (p[x] == x) return x;
+    int par = p[x];
+    int root = find(par);          // 先递归拿根
+    p[x] = root;                    // 路径压缩
+    Max[x] = max(Max[x], Max[par]); // ★ 累积父链 Max（par 已含其上的值）
+    return root;
+}
+
+int main() {
+    ios::sync_with_stdio(false); cin.tie(nullptr);
+    cin >> n >> m >> q;
+
+    for (int i = 0; i < MAXNODE; i++) { p[i] = i; Size[i] = 1; }  // 全部预初始化
+
+    vector<vector<ll>> a(n+10, vector<ll>(m+10, -1));   // 每格鱼大小
+    vector<vector<int>> pos(n+10, vector<int>(m+10, -1)); // 每格鱼节点编号
+
+    while (q--) {
+        int op; cin >> op;
+        if (op == 1) {
+            int x, y, z; cin >> x >> y >> z;
+            x ^= last; y ^= last;
+            int u = ++idx;           // 新鱼节点 (p/Size/Max 已初始化)
+            a[x][y] = z; pos[x][y] = u;
+
+            for (int k = 0; k < 4; k++) {
+                int nx = x+dx[k], ny = y+dy[k];
+                if (nx<1 || nx>n || ny<1 || ny>m || a[nx][ny] == -1) continue;
+                int ru = find(u), rv = find(pos[nx][ny]);   // ★ find(u) 不是 idx
+                if (ru == rv) continue;
+                int w = ++idx;       // 新合并根
+                p[ru] = w; p[rv] = w;
+                Size[w] = Size[ru] + Size[rv];
+                Max[w] = 0;
+                Max[ru] = z - Size[ru] + 1;   // 门槛
+                Max[rv] = z - Size[rv] + 1;
+                Size[ru] = Size[rv] = 0;
+            }
+            last = Size[find(u)] - 1;   // ★ 用 find(u) 拿根节点 Size
+            cout << last << '\n';
+        } else {
+            int x, y; cin >> x >> y;
+            x ^= last; y ^= last;
+            find(pos[x][y]);             // 压缩路径同时累积 Max
+            last = max(Max[pos[x][y]] - a[x][y], 0ll);
+            cout << last << '\n';
+        }
+    }
+    return 0;
+}
+```
+
+## 关键细节与易错点
+
+| # | 易错点 | 原因 |
+|:--|:------|:-----|
+| 1 | `fa_u = find(idx)` 而非 `idx` | 第一次合并后 `p[idx]` 指向新根，第二次合并要用 `find` 拿当前根 |
+| 2 | `Size[find(u)] - 1` 而非 `Size[pos]` | 合并后旧节点 `Size` 被清零，根节点的 Size 才是组件鱼数 |
+| 3 | 全量预初始化 p/Size | `idx` 可涨到 ~5e5，只初始化前 n 个会访问未初始化内存 |
+| 4 | `find` 里先递归再压缩 | 压缩前保留 `par`，`Max[par]` 已含其上的路径 Max，才能正确累积 |
+
+## 复杂度
+
+- 每次操作 O(α)（并查集近似常数）
+- 总复杂度 **O((n·m + q)·α)**，n·m ≤ 2.5×10⁵，q ≤ 5×10⁵，轻松通过
+
+## 样例验证
+
+以 `2 3` 网格、`9` 次操作为例，全部输出核对：
+
+| 操作 | 内容 | 输出 | 说明 |
+|:---:|:-----|:----:|:-----|
+| 1 | 放 (1,2) 大小1 | 0 | 单独 |
+| 2 | 放 (2,1) 大小1 | 0 | 单独 |
+| 3 | 放 (2,2) 大小2 | 2 | 合并成3鱼组件，3-1=2 |
+| 4 | 查 (1,2) 大小1 | 1 | Max门槛=2，2-1=1 |
+| 5 | 放 (1,3) 大小8 | 3 | 合并成4鱼组件，4-1=3 |
+| 6 | 查 (2,1) 大小1 | 5 | 门槛6，6-1=5 |
+| 7 | 放 (1,1) 大小9 | 4 | 合并成5鱼组件，5-1=4 |
+| 8 | 查 (2,2) 大小2 | 4 | 门槛6，6-2=4 |
+| 9 | 查 (1,3) 大小8 | 0 | 门槛8，8-8=0 |
+
+全部与样例一致。
