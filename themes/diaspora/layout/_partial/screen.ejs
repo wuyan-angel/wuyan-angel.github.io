@@ -13,7 +13,7 @@
     </div>
     <div id="header">
         <div>
-            <a class="image-logo" href="/"></a>
+            <% if (theme.logo_text) { %><a class="text-logo" href="/"><%= theme.logo_text %></a><% } else { %><a class="image-logo" href="/"></a><% } %>
 			<% if (theme.local_search.enable){ %>
 			<div class="iconfont icon-search switchsearch" href="<%= url_for('/search/') %>" title="搜索"></div>
 			<%}%>

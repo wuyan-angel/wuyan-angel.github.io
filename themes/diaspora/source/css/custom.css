@@ -104,3 +104,19 @@
 
 /* ── 页脚版权 ── */
 #copyright a { color: var(--brand); }
+
+/* ── 左上角文字 Logo ── */
+.text-logo {
+    z-index: 4;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-family: 'LXGW WenKai', 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 32px;
+    transition: color .35s ease;
+}
+.text-logo:hover { color: var(--gold); }
+body.mu .text-logo { color: #333; }

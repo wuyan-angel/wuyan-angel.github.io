@@ -1,3 +1,6 @@
+# 左上角文字 Logo（留空则使用原来的图片 logo.png）
+logo_text: 无言
+
 # 头部菜单，title: link
 menu:
   首页: /
