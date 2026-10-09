@@ -4,7 +4,7 @@ date: 2026-05-12 21:18:51
 categories: [题解]
 tags: [AtCoder, 二分, 前缀和]
 ---
-[D - Pond](https://atcoder.jp/contests/abc203/tasks/abc203_d)
+> 🔗 **原题链接**：[D - Pond](https://atcoder.jp/contests/abc203/tasks/abc203_d)
 题目大意：
 给定一个 $n*n$ 的一个方阵 问这个找到这个方阵的一个 $k*k$ 的一个子方阵 使得这个子方阵的中位数最小，中位数定义为这个子方阵内第 $k*k/2+1$ 大的元素，即排序后的一个中位数。
 我们考虑暴力的做法枚举每个$k*k$ 的子矩阵 但可以发现此时

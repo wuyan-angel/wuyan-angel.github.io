@@ -4,7 +4,7 @@ date: 2026-04-23 17:48:02
 categories: [题解]
 tags: [Codeforces]
 ---
-[Problem - F - Codeforces](https://codeforces.com/contest/2200/problem/F)
+> 🔗 **原题链接**：[Problem - F - Codeforces](https://codeforces.com/contest/2200/problem/F)
 题目大意：
 给定n个点对$x,y$，其中$x$为值，$y$为容量，代表如果我要选当前这个，其他选择的个数不超过$y$个
 然后有m次查询，每次查询也给定x,y你可以选择使用x,y也可以不使用，问加入x,y后，当前的最大贡献是多少

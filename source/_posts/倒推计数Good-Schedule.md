@@ -4,7 +4,7 @@ date: 2026-06-03 17:03:01
 categories: [题解]
 tags: [Codeforces]
 ---
-[Problem - D - Codeforces](https://codeforces.com/contest/2230/problem/D)
+> 🔗 **原题链接**：[Problem - D - Codeforces](https://codeforces.com/contest/2230/problem/D)
 题目大意：
 ## 1. 题目核心转化
 

@@ -4,7 +4,7 @@ date: 2026-10-01 20:30:08
 categories: [题解]
 tags: [AtCoder, 思维]
 ---
-[E - Pro Exam Eligibility](https://atcoder.jp/contests/abc469/tasks/abc469_e?lang=en)
+> 🔗 **原题链接**：[E - Pro Exam Eligibility](https://atcoder.jp/contests/abc469/tasks/abc469_e?lang=en)
 ## 【题解】Pro Exam Eligibility
 
 ---

@@ -4,7 +4,7 @@ date: 2026-10-01 22:16:36
 categories: [题解]
 tags: [AtCoder, 二分, 位运算, 思维]
 ---
-[B - Bin-ary Packing](https://atcoder.jp/contests/arc226/tasks/arc226_b?lang=en)
+> 🔗 **原题链接**：[B - Bin-ary Packing](https://atcoder.jp/contests/arc226/tasks/arc226_b?lang=en)
 # 【题解】Bin-ary Packing：高位拆槽位 Trick 总结
 
 ## 核心记忆卡片（10秒复盘）

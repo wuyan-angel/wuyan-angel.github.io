@@ -4,7 +4,7 @@ date: 2026-01-29 13:16:36
 categories: [题解]
 tags: [Codeforces]
 ---
-[题目链接](https://codeforces.com/problemset/problem/2155/C)
+> 🔗 **原题链接**：[题目链接](https://codeforces.com/problemset/problem/2155/C)
 题意：
 有n个人站成一行每个人有一个斗篷可以选择放在左侧或者右侧，放在左侧则左侧的人都看不见该人，但右侧的可以看见，反之亦然，这个斗篷怎么放都只会影响到别人看见该人，不会影响到其他的人，特别的自己能看到自己。
 思路：

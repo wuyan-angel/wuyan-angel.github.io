@@ -4,7 +4,7 @@ date: 2026-09-29 11:25:59
 categories: [题解]
 tags: [AtCoder, 思维]
 ---
-[B - Halving Subtraction](https://atcoder.jp/contests/arc229/tasks/arc229_b?lang=en)
+> 🔗 **原题链接**：[B - Halving Subtraction](https://atcoder.jp/contests/arc229/tasks/arc229_b?lang=en)
 ### 核心 Trick 总结
 
 1. **单次扣减的线性关系**：操作数值 $x$ 在位置 $i$ 减去 $v$，在位置 $i+1$ 减去 $\lfloor v/2 \rfloor$。由 $v = 2\lfloor v/2 \rfloor + (v \bmod 2)$ 可知，位置 $i$ 比 $2 \times$ 位置 $i+1$ 恰好**多减去了一个二进制位 $(0 \text{ 或 } 1)$**。
