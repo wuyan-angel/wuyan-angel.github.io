@@ -1,0 +1,253 @@
+/* =========================================================
+   Diaspora 主题美化补丁  ——  by wuyan-angel
+   在主题原样式之后加载，仅做覆盖，不改动原 diaspora.css
+   ========================================================= */
+/* 字体使用系统字体栈，避免依赖被墙的 Google Fonts */
+
+:root {
+    --brand:      #1f6f6b;   /* 主色：墨青 */
+    --brand-soft: #2c8a83;
+    --gold:       #c99a3d;   /* 点缀：暖金 */
+    --ink:        #25302e;   /* 正文墨色 */
+    --muted:      #8a9a96;
+}
+
+/* ── 标题改用衬线 / 文楷，更有书卷气 ── */
+#post0 h2,
+.else h3,
+.content h1, .content h2, .content h3, .content h4,
+.posttitle {
+    font-family: 'LXGW WenKai', '霞鹜文楷', 'KaiTi', '楷体', 'STKaiti', serif;
+    letter-spacing: .5px;
+}
+#post0 h2 a { letter-spacing: 1.5px; }
+
+/* ── 正文排版 ── */
+.content {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', '微软雅黑', 'Hiragino Sans GB', sans-serif;
+    font-size: 15.5px;
+    line-height: 2.05;
+    color: var(--ink);
+}
+.content p { margin: .7em 0; }
+.content a { color: var(--brand); border-bottom: 1px solid transparent; transition: .2s; }
+.content a:hover { border-bottom-color: var(--brand); }
+.content img { border-radius: 6px; box-shadow: 0 8px 26px rgba(31,111,107,.14); }
+
+/* ── 首屏大标题 ── */
+#post0 h2 a { transition: color .35s ease; }
+#post0 h2 a:hover { color: var(--gold); }
+#post0 p { letter-spacing: 1px; }
+
+/* ── 全屏菜单：悬停下划线换主色 ── */
+.menu a { transition: color .2s ease, border-color .2s ease; }
+.menu a:hover { color: var(--brand); border-bottom-color: var(--brand); }
+.nav .hitokoto { font-family: 'LXGW WenKai', serif; color: var(--ink); }
+.nav .footerlinks a:hover { color: var(--brand); }
+
+/* ── 分页按钮 ── */
+#pager a {
+    color: var(--brand);
+    border: 1px solid var(--brand-soft);
+    border-radius: 3px;
+    letter-spacing: 4px;
+    transition: .25s ease;
+}
+#pager a:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* ── 文章卡片微交互 ── */
+.else {
+    border-radius: 4px;
+    border: 1px solid #e6eeec;
+    transition: box-shadow .35s ease, transform .35s ease;
+}
+.post:hover .else {
+    box-shadow: 0 18px 44px rgba(31,111,107,.16);
+    transform: translateY(-4px);
+}
+.else h3 a { transition: color .25s ease; }
+.else h3 a:hover { color: var(--brand); }
+.here { color: var(--muted); }
+
+/* ── 顶部彩色加载条：换成主色渐变 ── */
+#loader {
+    background-image: linear-gradient(90deg, var(--brand), var(--gold)) !important;
+    background-image: -webkit-linear-gradient(left, var(--brand), var(--gold)) !important;
+    background-image: -moz-linear-gradient(left, var(--brand), var(--gold)) !important;
+    height: 3px;
+}
+
+/* ── 侧边滚动条 ── */
+.scrollbar { background-color: var(--brand); }
+
+/* ── 引用块 ── */
+.content blockquote {
+    border-left: 3px solid var(--brand-soft);
+    background: #f4faf8;
+    color: #4a5a56;
+    padding: 10px 16px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* ── 代码块 ── */
+.content code {
+    font-family: 'Source Code Pro', Consolas, monospace;
+    background: #f2f6f5;
+    color: #b3452e;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+.content pre {
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px #e6eeec;
+}
+
+/* ── 页脚版权 ── */
+#copyright a { color: var(--brand); }
+
+/* ── 左上角文字 Logo ── */
+.text-logo {
+    z-index: 4;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-family: 'LXGW WenKai', '霞鹜文楷', 'KaiTi', '楷体', 'STKaiti', serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 32px;
+    transition: color .35s ease;
+}
+.text-logo:hover { color: var(--gold); }
+body.mu .text-logo { color: #333; }
+
+/* ══════ 文章列表卡片优化 ══════ */
+.post > a { border-radius: 6px; overflow: hidden; }
+.post > a img.cover { transition: transform .55s cubic-bezier(.2,.7,.3,1); }
+.post:hover > a img.cover { transform: scale(1.045); }
+
+.else { padding: 0; }
+.else p:first-child {
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: 'Source Code Pro', monospace;
+}
+.else h3 { font-family: 'LXGW WenKai', '霞鹜文楷', 'KaiTi', '楷体', 'STKaiti', serif; line-height: 1.35; }
+.else h3 a { color: var(--ink); transition: color .25s ease; }
+.post:hover .else h3 a { color: var(--brand); }
+.else h3 + p { color: #6d7d78; line-height: 1.85; }
+
+/* 分页区域留白 */
+#pager { margin: 80px 0 40px; }
+
+/* ══════════════ 文章详情页美化 ══════════════ */
+#single { background: linear-gradient(180deg, #f7fbf9, #ffffff 360px); }
+.article .main { width: 780px; max-width: 92%; }
+h1.title {
+    font-family: 'LXGW WenKai', 'KaiTi', '楷体', serif;
+    font-size: 32px;
+    color: var(--ink);
+    letter-spacing: 1px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+.stuff {
+    color: var(--muted);
+    font-size: 13px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 6px;
+}
+.stuff span, .stuff a { margin-right: 12px; }
+.stuff a { color: var(--brand); }
+
+.content.markdown {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
+    font-size: 16px;
+    line-height: 2.0;
+    color: #2b3a36;
+}
+.content.markdown h1 { font-family: 'LXGW WenKai','KaiTi',serif; font-size: 28px; color: var(--brand); }
+.content.markdown h2 {
+    font-family: 'LXGW WenKai', 'KaiTi', serif;
+    font-size: 24px;
+    color: var(--brand);
+    margin: 36px 0 16px;
+    padding-left: 12px;
+    border-left: 4px solid var(--brand);
+    line-height: 1.35;
+}
+.content.markdown h3 {
+    font-family: 'LXGW WenKai', 'KaiTi', serif;
+    font-size: 19px;
+    color: var(--ink);
+    margin: 26px 0 10px;
+}
+.content.markdown h3::before { content: "▍"; color: var(--gold); margin-right: 6px; }
+.content.markdown p { margin: .65em 0; text-align: justify; }
+.content.markdown ul, .content.markdown ol { padding-left: 1.7em; margin: .6em 0; }
+.content.markdown li { margin: .35em 0; }
+.content.markdown img {
+    border-radius: 8px;
+    box-shadow: 0 6px 22px rgba(31,111,107,.15);
+    margin: 14px 0;
+}
+.content.markdown pre {
+    background: #1e2b28;
+    color: #e6f2ee;
+    border-radius: 8px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    line-height: 1.6;
+    box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+.content.markdown pre code { background: none; color: inherit; padding: 0; font-size: 13.5px; }
+.content.markdown table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px; }
+.content.markdown th, .content.markdown td { border: 1px solid var(--line); padding: 8px 12px; }
+.content.markdown th { background: #eef6f2; color: var(--ink); }
+.content.markdown hr { border: none; border-top: 1px solid var(--line); margin: 26px 0; }
+
+/* 顶部悬浮返回栏 */
+#top { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+
+/* ══════════ 首屏 · 打字机金句（替代原来的"最新文章"）══════════ */
+#screen-quote {
+    position: absolute;
+    top: 42%;
+    left: 10%;
+    width: 46%;
+    min-height: 3.6em;
+    z-index: 3;
+    color: #fff;
+    font-family: 'LXGW WenKai', '霞鹜文楷', 'KaiTi', '楷体', 'STKaiti', serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .55);
+}
+/* 打字机光标：白色方块闪烁（同时美化菜单里那处的光标） */
+.typed-cursor {
+    color: var(--gold);
+    font-weight: 400;
+    opacity: 1;
+    animation: typedjsBlink .75s infinite;
+}
+@keyframes typedjsBlink { 50% { opacity: 0; } }
+
+@media screen and (max-width: 1200px) {
+    #screen-quote { width: 54%; font-size: 28px; }
+}
+@media screen and (max-width: 900px) {
+    #screen-quote { width: 64%; font-size: 25px; }
+}
+@media screen and (max-width: 780px) {
+    #screen-quote {
+        top: auto; bottom: 70px; left: 5%;
+        width: 74%;
+        font-size: 21px;
+        letter-spacing: 1px;
+        min-height: 4.2em;
+    }
+}
