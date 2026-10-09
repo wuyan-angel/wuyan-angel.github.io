@@ -1,5 +1,5 @@
-# 左上角文字 Logo（留空则使用原来的图片 logo.png）
-logo_text: wuyan-angel
+# 左上角文字 Logo（留空则使用图片 logo.png）
+logo_text: wuyan_angel
 
 # 头部菜单，title: link
 menu:
@@ -30,9 +30,8 @@ screen_quote:
   - 把每一件小事做到极致，就是不平凡。
 
 # 默认文章封面图（随机调用,支持外链）
-cover: 
+cover:
   - /img/cover.jpg
-  - /img/welcome-cover.jpg
 
 # 是否显示Twitter分享卡片图像(图像尺寸要求：1200*600，creatorid不需要带@符号。注意：链接必须是完整url，否则Twitter将无法读取图片信息）
 twitterpic:
