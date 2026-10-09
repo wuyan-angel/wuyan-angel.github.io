@@ -1,6 +1,6 @@
 ---
 title: 二分+前缀和优化abc203_d
-date: 2026-07-20 17:43:00
+date: 2026-05-12 21:18:51
 categories: [题解]
 tags: [AtCoder, 二分, 前缀和]
 ---

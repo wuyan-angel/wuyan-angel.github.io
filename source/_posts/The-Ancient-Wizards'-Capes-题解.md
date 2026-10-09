@@ -1,6 +1,6 @@
 ---
 title: The Ancient Wizards' Capes 题解
-date: 2026-07-20 16:15:00
+date: 2026-01-29 13:16:36
 categories: [题解]
 tags: [Codeforces]
 ---

@@ -1,6 +1,6 @@
 ---
 title: ARC229_B 思维+思维转换
-date: 2026-07-20 09:35:00
+date: 2026-09-29 11:25:59
 categories: [题解]
 tags: [AtCoder, 思维]
 ---

@@ -1,6 +1,6 @@
 ---
 title: kruskal重构树
-date: 2026-07-20 11:45:00
+date: 2026-07-19 11:19:16
 categories: [笔记]
 tags: [树]
 ---

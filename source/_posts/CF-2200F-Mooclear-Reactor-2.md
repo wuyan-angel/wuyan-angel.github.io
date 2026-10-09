@@ -1,6 +1,6 @@
 ---
 title: CF 2200F Mooclear Reactor 2
-date: 2026-07-20 15:47:00
+date: 2026-04-23 17:48:02
 categories: [题解]
 tags: [Codeforces]
 ---

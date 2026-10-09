@@ -1,6 +1,6 @@
 ---
 title: 分数规划好题 + 思维转换 abc469_e
-date: 2026-07-20 12:06:00
+date: 2026-10-01 20:30:08
 categories: [题解]
 tags: [AtCoder, 思维]
 ---

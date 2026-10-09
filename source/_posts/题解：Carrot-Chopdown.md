@@ -1,6 +1,6 @@
 ---
 title: 题解：Carrot Chopdown
-date: 2026-07-20 10:17:00
+date: 2026-09-21 11:14:23
 categories: [题解]
 tags: [Codeforces, 思维]
 ---

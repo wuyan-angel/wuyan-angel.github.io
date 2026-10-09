@@ -1,6 +1,6 @@
 ---
 title: CF「Bermuda Rectangle」题解总结
-date: 2026-07-20 10:10:00
+date: 2026-08-27 00:27:32
 categories: [题解]
 tags: [Codeforces]
 ---

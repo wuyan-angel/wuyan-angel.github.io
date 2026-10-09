@@ -1,6 +1,6 @@
 ---
 title: 【题解】Bin-ary Packing：高位拆槽位 Trick 总结
-date: 2026-07-20 11:52:00
+date: 2026-10-01 22:16:36
 categories: [题解]
 tags: [AtCoder, 二分, 位运算, 思维]
 ---

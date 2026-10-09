@@ -1,6 +1,6 @@
 ---
 title: CF2240D 思维、adhoc、trick
-date: 2026-07-20 10:56:00
+date: 2026-08-11 12:08:34
 categories: [题解]
 tags: [Codeforces, 思维]
 ---

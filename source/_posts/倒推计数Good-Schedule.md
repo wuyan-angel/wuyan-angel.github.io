@@ -1,6 +1,6 @@
 ---
 title: 倒推计数Good Schedule
-date: 2026-07-20 11:59:00
+date: 2026-06-03 17:03:01
 categories: [题解]
 tags: [Codeforces]
 ---

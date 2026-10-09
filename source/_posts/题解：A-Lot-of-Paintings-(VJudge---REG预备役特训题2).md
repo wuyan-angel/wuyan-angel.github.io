@@ -1,6 +1,6 @@
 ---
 title: 题解：A Lot of Paintings (VJudge - REG预备役特训题2)
-date: 2026-07-20 09:00:00
+date: 2026-09-28 17:34:22
 categories: [题解]
 tags: [ICPC, 思维]
 ---

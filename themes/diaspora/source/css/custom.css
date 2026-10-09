@@ -120,3 +120,23 @@
 }
 .text-logo:hover { color: var(--gold); }
 body.mu .text-logo { color: #333; }
+
+/* ══════ 文章列表卡片优化 ══════ */
+.post > a { border-radius: 6px; overflow: hidden; }
+.post > a img.cover { transition: transform .55s cubic-bezier(.2,.7,.3,1); }
+.post:hover > a img.cover { transform: scale(1.045); }
+
+.else { padding: 0; }
+.else p:first-child {
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: 'Source Code Pro', monospace;
+}
+.else h3 { font-family: 'LXGW WenKai', 'Noto Serif SC', serif; line-height: 1.35; }
+.else h3 a { color: var(--ink); transition: color .25s ease; }
+.post:hover .else h3 a { color: var(--brand); }
+.else h3 + p { color: #6d7d78; line-height: 1.85; }
+
+/* 分页区域留白 */
+#pager { margin: 80px 0 40px; }
